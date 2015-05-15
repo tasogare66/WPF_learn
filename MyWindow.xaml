@@ -1,0 +1,12 @@
+<Window
+    xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation'
+    Title='Hello World'>
+  <WrapPanel>
+    <Button>こんにちは！</Button>
+    <Button>第２のボタン</Button>
+    <TextBox>編集可能なテキストボックス</TextBox>
+    <CheckBox>チェックボックス</CheckBox>
+    <Slider Width='75' Minimum='0' Maximum='100' Value='50' />
+  </WrapPanel>
+</Window>
+    
