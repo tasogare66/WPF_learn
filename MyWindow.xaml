@@ -5,6 +5,30 @@
   Title='Hello World'>
   <Window.Resources>
     <SolidColorBrush x:Key='bg' Color='Red' />
+
+    <Style x:Key='{x:Type Button}' TargetType='{x:Type Button}'>
+      <Setter Property='Background' Value='{StaticResource bg}' />
+      <Setter Property='Template' >
+        <Setter.Value>
+          <ControlTemplate TargetType='{x:Type Button}'>
+            <Grid>
+              <Ellipse StrokeThickness='4'>
+                <Ellipse.Stroke>
+                  <LinearGradientBrush>
+                    <GradientStop Offset='0' Color='White' />
+                    <GradientStop Offset='1' Color='Black' />
+                  </LinearGradientBrush>
+                </Ellipse.Stroke>
+              </Ellipse>
+              <ContentPresenter
+                Margin='10'
+                HorizontalAlignment='Center'
+                VerticalAlignment='Center' />
+            </Grid>
+          </ControlTemplate>
+        </Setter.Value>
+      </Setter>
+    </Style>
   </Window.Resources>
   <Window.Triggers>
     <EventTrigger RoutedEvent='FrameworkElement.Loaded' >
@@ -29,9 +53,8 @@
   
   <DockPanel>
     <WrapPanel x:Name='panel' DockPanel.Dock='Top'>
-      <Button Background='{StaticResource bg}'
-              Click='HowdyClicked'>こんにちは！</Button>
-      <Button Background='{StaticResource bg}'>第２のボタン</Button>
+      <Button Click='HowdyClicked'>こんにちは！</Button>
+      <Button>第２のボタン</Button>
       <TextBox x:Name='_text1'>編集可能なテキストボックス</TextBox>
       <CheckBox Content='{Binding ElementName=_text1,Path=Text}' />
       <Slider Width='75' Minimum='0' Maximum='100' Value='50' />
