@@ -3,11 +3,16 @@
   xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
   xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation'
   Title='Hello World'>
+  <Window.Resources>
+    <SolidColorBrush x:Key='bg' Color='Red' />
+  </Window.Resources>
+  
   <WrapPanel>
-    <Button Click='HowdyClicked'>こんにちは！</Button>
-    <Button>第２のボタン</Button>
+    <Button Background='{StaticResource bg}'
+            Click='HowdyClicked'>こんにちは！</Button>
+    <Button Background='{StaticResource bg}'>第２のボタン</Button>
     <TextBox x:Name='_text1'>編集可能なテキストボックス</TextBox>
-    <CheckBox>チェックボックス</CheckBox>
+    <CheckBox Content='{Binding ElementName=_text1,Path=Text}' />
     <Slider Width='75' Minimum='0' Maximum='100' Value='50' />
   </WrapPanel>
 </Window>
