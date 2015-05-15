@@ -21,6 +21,7 @@ xmlns='http://schemas.microsoft.com/developer/msbuild/2003'>
 
 <ItemGroup>
 <!---	<Compile Include='program.cs' /> -->
+	<Compile Include='MyWindow.xaml.cs' />
 	<Page Include='MyWindow.xaml' />
 	<ApplicationDefinition Include='App.xaml' />
 </ItemGroup>
