@@ -6,14 +6,24 @@
   <Window.Resources>
     <SolidColorBrush x:Key='bg' Color='Red' />
   </Window.Resources>
-  
-  <WrapPanel>
-    <Button Background='{StaticResource bg}'
-            Click='HowdyClicked'>こんにちは！</Button>
-    <Button Background='{StaticResource bg}'>第２のボタン</Button>
-    <TextBox x:Name='_text1'>編集可能なテキストボックス</TextBox>
-    <CheckBox Content='{Binding ElementName=_text1,Path=Text}' />
-    <Slider Width='75' Minimum='0' Maximum='100' Value='50' />
-  </WrapPanel>
+  <DockPanel>
+    <WrapPanel DockPanel.Dock='Top'>
+      <Button Background='{StaticResource bg}'
+              Click='HowdyClicked'>こんにちは！</Button>
+      <Button Background='{StaticResource bg}'>第２のボタン</Button>
+      <TextBox x:Name='_text1'>編集可能なテキストボックス</TextBox>
+      <CheckBox Content='{Binding ElementName=_text1,Path=Text}' />
+      <Slider Width='75' Minimum='0' Maximum='100' Value='50' />
+    </WrapPanel>
+    <Rectangle Margin='5'>
+      <Rectangle.Fill>
+        <LinearGradientBrush>
+          <GradientStop Offset='0' Color='Red' />
+          <GradientStop Offset='.5' Color='White' />
+          <GradientStop Offset='1' Color='Blue' />
+        </LinearGradientBrush>
+      </Rectangle.Fill>
+    </Rectangle>
+  </DockPanel>
 </Window>
     
