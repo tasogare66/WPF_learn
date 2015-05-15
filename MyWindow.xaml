@@ -6,6 +6,27 @@
   <Window.Resources>
     <SolidColorBrush x:Key='bg' Color='Red' />
   </Window.Resources>
+  <Window.Triggers>
+    <EventTrigger RoutedEvent='FrameworkElement.Loaded' >
+      <EventTrigger.Actions>
+        <BeginStoryboard>
+          <BeginStoryboard.Storyboard>
+            <Storyboard>
+              <DoubleAnimation
+                From='-25'
+                To='25'
+                Storyboard.TargetName='rotation'
+                Storyboard.TargetProperty='Angle'
+                AutoReverse='True'
+                Duration='0:0:2.5'
+                RepeatBehavior='Forever' />
+            </Storyboard>
+          </BeginStoryboard.Storyboard>
+        </BeginStoryboard>
+      </EventTrigger.Actions>
+    </EventTrigger>
+  </Window.Triggers>
+  
   <DockPanel>
     <WrapPanel x:Name='panel' DockPanel.Dock='Top'>
       <Button Background='{StaticResource bg}'
@@ -15,14 +36,59 @@
       <CheckBox Content='{Binding ElementName=_text1,Path=Text}' />
       <Slider Width='75' Minimum='0' Maximum='100' Value='50' />
     </WrapPanel>
-    <Rectangle Margin='5'>
-      <Rectangle.Fill>
-        <VisualBrush
-         Visual='{Binding ElementName=panel}'
-         Viewport='0,0,.5,.2'
-         TileMode='Tile' />
-      </Rectangle.Fill>
-    </Rectangle>
+
+    <Viewport3D>
+      <Viewport3D.Camera>
+        <PerspectiveCamera
+          LookDirection='-.7,-.8,-1'
+          Position='3.8,4,4'
+          FieldOfView='17'
+          UpDirection='0,1,0' />
+      </Viewport3D.Camera>
+      <ModelVisual3D>
+        <ModelVisual3D.Content>
+          <Model3DGroup>
+            <PointLight
+              Position='3.8,4,4'
+              Color='White'
+              Range='7'
+              ConstantAttenuation='1.0' />
+            <GeometryModel3D>
+              <GeometryModel3D.Transform>
+                <RotateTransform3D
+                  CenterX='.5'
+                  CenterY='.5'
+                  CenterZ='.5' >
+                  <RotateTransform3D.Rotation>
+                    <AxisAngleRotation3D
+                      x:Name='rotation'
+                      Axis='0,1,0'
+                      Angle='0' />
+                  </RotateTransform3D.Rotation>
+                </RotateTransform3D>
+              </GeometryModel3D.Transform>
+              <GeometryModel3D.Geometry>
+                <MeshGeometry3D
+                  TextureCoordinates='0,0 1,0 0,-1 1,-1, 0,0 1,0 0,-1 0,0'
+                  Positions='0,0,0 1,0,0 0,1,0 1,1,0 0,1,-1 1,1,-1 1,1,-1 1,0,-1'
+                  TriangleIndices='0,1,2 3,2,1 4,2,3 5,4,3 6,3,1 7,6,1' />
+              </GeometryModel3D.Geometry>
+              <GeometryModel3D.Material>
+                <DiffuseMaterial>
+                  <DiffuseMaterial.Brush>
+                    <VisualBrush
+                      Viewport='0,0,.5,.26'
+                      TileMode='Tile'
+                      Visual='{Binding ElementName=panel}' />
+                  </DiffuseMaterial.Brush>
+                </DiffuseMaterial>
+              </GeometryModel3D.Material>
+            </GeometryModel3D>
+          </Model3DGroup>
+        </ModelVisual3D.Content>
+      </ModelVisual3D>
+    </Viewport3D>
+  
   </DockPanel>
 </Window>
     
