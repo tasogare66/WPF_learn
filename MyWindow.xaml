@@ -7,7 +7,7 @@
     <SolidColorBrush x:Key='bg' Color='Red' />
   </Window.Resources>
   <DockPanel>
-    <WrapPanel DockPanel.Dock='Top'>
+    <WrapPanel x:Name='panel' DockPanel.Dock='Top'>
       <Button Background='{StaticResource bg}'
               Click='HowdyClicked'>こんにちは！</Button>
       <Button Background='{StaticResource bg}'>第２のボタン</Button>
@@ -17,11 +17,10 @@
     </WrapPanel>
     <Rectangle Margin='5'>
       <Rectangle.Fill>
-        <LinearGradientBrush>
-          <GradientStop Offset='0' Color='Red' />
-          <GradientStop Offset='.5' Color='White' />
-          <GradientStop Offset='1' Color='Blue' />
-        </LinearGradientBrush>
+        <VisualBrush
+         Visual='{Binding ElementName=panel}'
+         Viewport='0,0,.5,.2'
+         TileMode='Tile' />
       </Rectangle.Fill>
     </Rectangle>
   </DockPanel>
