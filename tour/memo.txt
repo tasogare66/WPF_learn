@@ -1,0 +1,2 @@
+msbuild  tour.csproj
+でビルド
