@@ -1,5 +1,6 @@
 using System;
 using System.Windows;
+using System.Windows.Threading;
 
 namespace EssentialWPF
 {
@@ -14,6 +15,11 @@ namespace EssentialWPF
             Window w = new Window();
             w.Title = "Hello World";
             w.Show();
+        }
+
+        void Failure(object sender, DispatcherUnhandledExceptionEventArgs e)
+        {
+            // カスタムロジック
         }
     }
 }
