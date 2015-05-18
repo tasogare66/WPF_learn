@@ -1,0 +1,29 @@
+<Project
+	DefaultTargets='Build'
+	xmlns='http://schemas.microsoft.com/developer/msbuild/2003'>
+
+<PropertyGroup>
+	<Configuration>Debug</Configuration>
+	<Platform>AnyCPU</Platform>
+	<RootNamespace>application_1</RootNamespace>
+	<AssemblyName>application_1</AssemblyName>
+	<OutputType>winexe</OutputType>
+	<OutputPath>.\bin\Debug\</OutputPath>
+</PropertyGroup>
+
+<ItemGroup>
+	<Reference Include='System' />
+	<Reference Include='System.Xaml' />
+	<Reference Include='WindowsBase' />
+	<Reference Include='PresentationCore' />
+	<Reference Include='PresentationFramework' />
+</ItemGroup>
+
+	<ItemGroup>
+		<ApplicationDefinition Include='myapp.xaml' />
+		<Compile Include='myapp.xaml.cs' />
+	</ItemGroup>
+
+<Import Project='$(MSBuildBinPath)\Microsoft.CSharp.targets' />
+<Import Project='$(MSBuildBinPath)\Microsoft.WinFX.targets' />
+</Project>
