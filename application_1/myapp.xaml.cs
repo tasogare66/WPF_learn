@@ -1,11 +1,19 @@
 using System;
 using System.Windows;
 using System.Windows.Threading;
+using System.IO;
 
 namespace EssentialWPF
 {
     partial class MyApp : Application
     {
+        private Exception _lastError;
+        public Exception LastError
+        {
+            get { return _lastError; }
+            set { _lastError = value; }
+        }
+        
         public MyApp()
         {
         }
@@ -19,7 +27,16 @@ namespace EssentialWPF
 
         void Failure(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
-            // カスタムロジック
+            using (StreamWriter errorLog =
+                new StreamWriter("error.log", true))
+            {
+                errorLog.WriteLine("Error @ " + DateTime.Now.ToString("R"));
+                errorLog.WriteLine(e.Exception.ToString());
+            }
+            e.Handled = true;
+            this.Properties["LastError"] = e.Exception;
+            this.LastError = e.Exception;
+            MessageBox.Show("エラーが発生しました。");
         }
     }
 }
