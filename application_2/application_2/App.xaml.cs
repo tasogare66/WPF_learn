@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 
 namespace application_2
 {
@@ -33,6 +35,14 @@ namespace application_2
             Window w = new Window();
             w.Title = "実行回数は" + (Settings.RunCount++) + "回です!";
             w.Show();
+
+            Image simpleImage = new Image();   
+            simpleImage.Source = new BitmapImage( new Uri("images/content.jpg", UriKind.Relative) );
+
+            //GetContentStream();
+            //GetRemoteStream();
+            //GetResourceStream();
+            //LoadComponent();
         }
     }
 }

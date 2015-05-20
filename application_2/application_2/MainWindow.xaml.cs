@@ -25,6 +25,7 @@ namespace application_2
         }
     }
 
+
     public class AppSettings : ApplicationSettingsBase
     {
         public AppSettings() : base() 
