@@ -1,0 +1,19 @@
+﻿<Page x:Class="window_2.Page1"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+	Title="Page1" WindowTitle="ページ１">
+    <StackPanel>
+        <Label>あなたのお名前は？</Label>
+        <TextBox Name="_nameBox" />
+        <TextBlock>
+            <Hyperlink NavigateUri="page2.xaml"
+                       RequestNavigate="Page_RequestNavigate">
+                クリックしてページ２に移動
+            </Hyperlink>
+        </TextBlock>
+    </StackPanel>
+</Page>
