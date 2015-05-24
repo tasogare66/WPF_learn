@@ -44,6 +44,8 @@ namespace window_3
 
         void Page_Navigated(object sender, NavigationEventArgs e)
         {
+            _navigation.RemoveBackEntry();  // エントリ削除
+            
             _navigation.Navigating -= Page_Navigating;
             _navigation.Navigated -= Page_Navigated;
             _navigation = null;
