@@ -1,0 +1,4 @@
+<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+    <TextBlock FontSize="24pt">Hello Loose XAML!</TextBlock>
+</Page>
