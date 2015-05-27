@@ -6,7 +6,47 @@
         <Button Click="ChangeIt">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Rectangle Fill="Red" Width="75" Height="23"/>
+                    <Border CornerRadius="4" BorderThickness="3">
+                        <Border.BorderBrush>
+                            <LinearGradientBrush EndPoint="0,1">
+                                <LinearGradientBrush.GradientStops>
+                                    <GradientStop Offset="0" Color="#FFFFFFFF" />
+                                    <GradientStop Offset="1" Color="#FF777777" />
+                                </LinearGradientBrush.GradientStops>
+                            </LinearGradientBrush>
+                        </Border.BorderBrush>
+                        <Border.Background>
+                            <LinearGradientBrush EndPoint="0,1">
+                                <LinearGradientBrush.GradientStops>
+                                    <GradientStop Offset="0" Color="#FF777777" />
+                                    <GradientStop Offset="1" Color="#FFFFFFFF" />
+                                </LinearGradientBrush.GradientStops>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <ContentPresenter
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            My Button
+        </Button>
+
+        <Button
+            BorderThickness="4"
+            BorderBrush="Orange"
+            Background="Yellow">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border CornerRadius="4"
+                            BorderThickness="{TemplateBinding Property=BorderThickness}"
+                            BorderBrush="{TemplateBinding Property=BorderBrush}"
+                            Background="{TemplateBinding Property=Background}"
+                            >
+                        <ContentPresenter
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"/>
+                    </Border>
                 </ControlTemplate>
             </Button.Template>
             My Button
